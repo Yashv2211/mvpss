@@ -1,0 +1,113 @@
+/* Base Styles */
+body {
+    font-family: -apple-system, "system-ui", sans-serif;
+    background: hsl(0, 0%, 100%);
+    color: hsl(20, 14.3%, 4.1%);
+}
+
+* {
+    border-color: hsl(20, 5.9%, 90%);
+}
+
+/* Dark Mode */
+.dark {
+    --background: hsl(20, 14.3%, 4.1%);
+    --foreground: hsl(60, 9.1%, 97.8%);
+    --card: hsl(20, 14.3%, 4.1%);
+    --card-foreground: hsl(60, 9.1%, 97.8%);
+    --popover: hsl(20, 14.3%, 4.1%);
+    --popover-foreground: hsl(60, 9.1%, 97.8%);
+    --primary: hsl(60, 9.1%, 97.8%);
+    --primary-foreground: hsl(24, 9.8%, 10%);
+    --secondary: hsl(12, 6.5%, 15.1%);
+    --secondary-foreground: hsl(60, 9.1%, 97.8%);
+    --muted: hsl(12, 6.5%, 15.1%);
+    --muted-foreground: hsl(24, 5.4%, 63.9%);
+    --accent: hsl(12, 6.5%, 15.1%);
+    --accent-foreground: hsl(60, 9.1%, 97.8%);
+    --destructive: hsl(0, 62.8%, 30.6%);
+    --destructive-foreground: hsl(60, 9.1%, 97.8%);
+    --border: hsl(12, 6.5%, 15.1%);
+    --input: hsl(12, 6.5%, 15.1%);
+    --ring: hsl(24, 5.7%, 82.9%);
+    --chart-1: hsl(220, 70%, 50%);
+    --chart-2: hsl(160, 60%, 45%);
+    --chart-3: hsl(30, 80%, 55%);
+    --chart-4: hsl(280, 65%, 60%);
+    --chart-5: hsl(340, 75%, 55%);
+}
+
+/* Orb Styling */
+.orb {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.animate-orb {
+    animation: wave 0.4s infinite ease-in-out;
+}
+
+.animate-orb-slow {
+    animation: wave 2s infinite ease-in-out;
+}
+
+.orb-active {
+    background: radial-gradient(circle at center, #c7c7c7, #908e8e, #595959);
+}
+
+.orb-inactive {
+    background: radial-gradient(circle at center,
+        rgba(200, 200, 200, 0.8),
+        rgba(150, 150, 150, 0.6),
+        rgba(100, 100, 100, 0.4)
+    );
+}
+
+/* Inner Gradient Layer for Waving Effect */
+.orb::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    border-radius: 50%;
+    animation: wave-motion 6s infinite linear;
+}
+.blinking-cursor {
+  font-weight: 100;
+  font-size: 1em;
+  color: #ffffff;
+  animation: blink 1s step-start infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Keyframes for Waving Animation */
+@keyframes wave {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes wave-motion {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(10px, 10px) rotate(180deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+    }
+}
